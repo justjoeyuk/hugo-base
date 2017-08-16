@@ -7,7 +7,8 @@ var gulp         = require("gulp"),
 gulp.task("scss", function () {
     del(["static/css/**/*"])
     gulp.src("src/scss/**/*.scss")
-        .pipe(sass({outputStyle : "compressed"}))
+        .pipe(sass({outputStyle : "compressed"}).on('error', sass.logError))
+        //sass.logError stops error crashing gulp
         .pipe(autoprefixer({browsers : ["last 20 versions"]}))
         .pipe(hash())
         .pipe(gulp.dest("static/css"))
@@ -35,10 +36,13 @@ gulp.task("js", function () {
         .pipe(gulp.dest("data/js"))
 })
 
-gulp.task("watch", ["scss", "images", "js"], function () {
+gulp.task("serve", ["scss", "images", "js"], function () {
     gulp.watch("src/scss/**/*", ["scss"])
     gulp.watch("src/images/**/*", ["images"])
     gulp.watch("src/js/**/*", ["js"])
 })
 
-gulp.task("default", ["watch"])
+gulp.task("prod", ["scss", "images", "js"], function () {
+})
+
+gulp.task("default", ["serve"])

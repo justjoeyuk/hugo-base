@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "rm -Rf public/ && hugo --verbose && hugo server -wv",
+    "dev": "rm -Rf public/ && gulp prod && hugo server -wv",
+    "start": "rm -Rf public/ && gulp prod && hugo server -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
