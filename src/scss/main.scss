@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+$red : #000;
+
+body {
+    background: $red;
+    font-family: 'PT Sans', sans-serif;
+    
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  a {
+    color: #333;
+    text-decoration: none;
+  }
+  text-align: center;
+}
+
+article {
+  padding: 30px;
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  background: white;
+  margin: 30px auto;
+}
